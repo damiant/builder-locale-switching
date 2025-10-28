@@ -31,9 +31,9 @@ export function loadTargetData(targetSection: string, targetUrl: string, targetL
         })
         .toPromise();
 }
+    builder.init("b1b2e26f288f4aa994419105b514c458");
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    builder.init("b1b2e26f288f4aa994419105b514c458");
 
     const { query } = context;
     const targetModel = "test-page";
@@ -57,16 +57,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
  * for use within the visual editor.
  */
 const SectionPreviewPage = (props: SectionPreviewProps) => {
-    builder.init("b1b2e26f288f4aa994419105b514c458");
+    
     let ct = 0;
     console.log(`Builder component re-render`)
     return (
         <BuilderComponent
             onStateChange={(state) => {
-                console.trace();
-                console.log(`New state locale: ${state.locale}`);
-                console.log(`BuilderComponentWrapper received state change`);
-                console.log(`State change ${ct++}`);
+                console.log(`State change ${ct++} ${state.locale}`);
             }}
             content={props.targetContent}
             model={props.targetModel}
